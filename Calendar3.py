@@ -20,7 +20,10 @@ try:
     entries = reminders[today_key]
 except KeyError:
     entries = []
-print(f"Hello! You have {len(entries)} reminders today.")
+if len(entries) == 1:
+    print(f"Hello! You have {len(entries)} reminder today.")
+else:
+    print(f"Hello! You have {len(entries)} reminders today.")
 if len(entries) > 0:
     print("1 - read")
 print("2 - continue")
@@ -57,7 +60,7 @@ def print_today():
         print("You have no reminders for today.")
     else:
         for entry in entries:
-            print(entry)
+            print(f"  • {entry}")
 
 def help():
         print("Commands:")
@@ -250,4 +253,3 @@ while True:
         check_command()
     except ValueError:
         print("Unknown command. Try again.")
-    
